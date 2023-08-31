@@ -57,6 +57,28 @@ To ensure that macOS accepts the newly created certificate, restart the
 
     frida.sln
 
+### Build
+
+    export ANDROID_NDK_ROOT=~/android_sdk/ndk/25.2.9519653
+    rm -rf build/frida-android-*/ && \
+    rm -rf build/tmp-android-*/ && \
+    make core-android-arm && make core-android-arm64 && \
+    adb root && \
+    adb remount && \
+    adb push build/frida-android-arm64/bin/frida-server /system/bin/frida-server && \
+    adb push build/frida-android-arm/lib/frida/32/frida-helper /system/bin/frida-helper-32 && \
+    adb push build/frida-android-arm64/lib/frida/64/frida-helper /system/bin/frida-helper-64 && \
+    adb push build/frida-android-arm/lib/frida/32/frida-agent.so /system/lib/frida-agent.so && \
+    adb push build/frida-android-arm64/lib/frida/64/frida-agent.so /system/lib64/frida-agent.so && \
+    adb reboot
+
+    adb shell ps -A | grep frida-server | awk '{print $2}' | xargs adb shell kill -9 &&
+    adb forward tcp:62001 tcp:62001 && frida -H 127.0.0.1:62001 --token deyousofrida -f assa.xxx.66 -l '/home/deyouos/block.js'
+
+adb shell /system/bin/frida-server -l 127.0.0.1:62001
+adb pull /sys/fs/selinux/policy && adb logcat -b events -d | audit2allow -p policy
+
+
 (Requires Visual Studio 2022.)
 
 See [https://frida.re/docs/building/](https://frida.re/docs/building/)

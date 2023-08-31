@@ -1,0 +1,16 @@
+
+service service_frida /system/bin/frida-server
+    class main
+    user root
+    group root system brawn_shell
+    disabled
+    oneshot
+
+on property:sys.frida.enabled=1
+    start service_frida
+
+on property:sys.frida.enabled=0
+    stop service_frida
+
+on userspace-reboot-resume
+    setprop sys.frida.enabled 0

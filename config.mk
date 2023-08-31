@@ -4,7 +4,7 @@ PREFIX ?= /usr
 FRIDA := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 # Features ordered by binary footprint, from largest to smallest
-FRIDA_V8 ?= auto
+FRIDA_V8 ?= enabled
 FRIDA_CONNECTIVITY ?= enabled
 FRIDA_DATABASE ?= enabled
 FRIDA_JAVA_BRIDGE ?= auto
@@ -22,11 +22,11 @@ ifeq ($(FRIDA_ASAN), yes)
 FRIDA_FLAGS_COMMON := -Doptimization=1 -Db_sanitize=address
 FRIDA_FLAGS_BOTTLE := -Doptimization=1 -Db_sanitize=address
 else
-FRIDA_FLAGS_COMMON := -Doptimization=s -Db_ndebug=true --strip
-FRIDA_FLAGS_BOTTLE := -Doptimization=s -Db_ndebug=true --strip
+FRIDA_FLAGS_COMMON := -Doptimization=s -Db_ndebug=false --strip
+FRIDA_FLAGS_BOTTLE := -Doptimization=s -Db_ndebug=false --strip
 endif
 
-FRIDA_MAPPER := -Dmapper=auto
+FRIDA_MAPPER := -Dmapper=auto -Dtests=false -Dassets=installed -Dasset_path_template=/system
 
 XCODE11 ?= /Applications/Xcode-11.7.app
 
