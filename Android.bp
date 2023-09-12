@@ -53,7 +53,7 @@ cc_prebuilt_binary {
         }
     },
     compile_multilib: "32",
-    shared_libs: ["frida-agent"]
+    shared_libs: ["libfrida-agent", "libfrida-gadget"]
 }
 
 cc_prebuilt_binary {
@@ -64,11 +64,11 @@ cc_prebuilt_binary {
         }
     },
     compile_multilib: "64",
-    shared_libs: ["frida-agent"]
+    shared_libs: ["libfrida-agent", "libfrida-gadget"]
 }
 
 cc_prebuilt_library_shared {
-    name: "frida-agent",
+    name: "libfrida-agent",
     arch: {
         arm: {
             srcs: ["build/frida-android-arm/lib/frida/32/frida-agent.so"],
@@ -78,7 +78,19 @@ cc_prebuilt_library_shared {
         }
     },
     check_elf_files: false,
-    prefer: true
+}
+
+cc_prebuilt_library_shared {
+    name: "libfrida-gadget",
+    arch: {
+        arm: {
+            srcs: ["build/frida-android-arm/lib/frida/32/frida-gadget.so"],
+        },
+        arm64: {
+            srcs: ["build/frida-android-arm64/lib/frida/64/frida-gadget.so"],
+        }
+    },
+    check_elf_files: false,
 }
 
 cc_prebuilt_library_static {
@@ -176,6 +188,7 @@ cc_prebuilt_library_static {
 
 cc_prebuilt_library_static {
     name: "libFridaGlibGio",
+    export_include_dirs: ["build/sdk-android-arm64/include/glib-2.0"],
     arch: {
         arm: {
             srcs: ["build/sdk-android-arm/lib/libgio-2.0.a"],
@@ -393,6 +406,66 @@ cc_prebuilt_library_static {
         },
         arm64: {
             srcs: ["build/sdk-android-arm64/lib/libselinux.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaDwarf",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libdwarf.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libdwarf.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaTcc",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libtcc.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libtcc.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaElf",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libelf.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libelf.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaSqlite3",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libsqlite3.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libsqlite3.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaV8",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libv8-10.0.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libv8-10.0.a"],
         }
     }
 }
