@@ -80,3 +80,319 @@ cc_prebuilt_library_shared {
     check_elf_files: false,
     prefer: true
 }
+
+cc_prebuilt_library_static {
+    name: "libFridaCore",
+    export_include_dirs: ["build/frida-android-arm64/include/frida-1.0"],
+    arch: {
+        arm: {
+            srcs: ["build/frida-android-arm/lib/libfrida-core-1.0.a"],
+        },
+        arm64: {
+            srcs: ["build/frida-android-arm64/lib/libfrida-core-1.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGum",
+    export_include_dirs: ["build/frida-android-arm64/include/frida-1.0"],
+    arch: {
+        arm: {
+            srcs: ["build/frida-android-arm/lib/libfrida-gum-1.0.a"],
+        },
+        arm64: {
+            srcs: ["build/frida-android-arm64/lib/libfrida-gum-1.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGumJs",
+    export_include_dirs: ["build/frida-android-arm64/include/frida-1.0"],
+    arch: {
+        arm: {
+            srcs: ["build/frida-android-arm/lib/libfrida-gumjs-1.0.a"],
+        },
+        arm64: {
+            srcs: ["build/frida-android-arm64/lib/libfrida-gumjs-1.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGumJsInspector",
+    export_include_dirs: ["build/frida-android-arm64/include/frida-1.0"],
+    arch: {
+        arm: {
+            srcs: ["build/frida-android-arm/lib/libfrida-gumjs-inspector-1.0.a"],
+        },
+        arm64: {
+            srcs: ["build/frida-android-arm64/lib/libfrida-gumjs-inspector-1.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGlib",
+    export_include_dirs: [
+        "build/sdk-android-arm64/include/glib-2.0",
+        "build/sdk-android-arm64/lib/glib-2.0/include"
+    ],
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libglib-2.0.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libglib-2.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGlibJson",
+    export_include_dirs: ["build/sdk-android-arm64/include/json-glib-1.0"],
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libjson-glib-1.0.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libjson-glib-1.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGlibObject",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libgobject-2.0.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libgobject-2.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGlibGio",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libgio-2.0.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libgio-2.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGlibGee",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libgee-0.8.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libgee-0.8.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGlibNice",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libnice.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libnice.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGlibModule",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libgmodule-2.0.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libgmodule-2.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaSoup",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libsoup-3.0.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libsoup-3.0.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaQuickjs",
+    export_include_dirs: ["build/sdk-android-arm64/include/quickjs"],
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libquickjs.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libquickjs.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaCrypto",
+    export_include_dirs: ["build/sdk-android-arm64/include"],
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libcrypto.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libcrypto.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaSsl",
+    export_include_dirs: ["build/sdk-android-arm64/include"],
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libssl.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libssl.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaGioopenSsl",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/gio/modules/libgioopenssl.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/gio/modules/libgioopenssl.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaUsrsctp",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libusrsctp.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libusrsctp.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaMinizip",
+    export_include_dirs: ["build/sdk-android-arm64/include"],
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libminizip.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libminizip.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaZ",
+    export_include_dirs: ["build/sdk-android-arm64/include"],
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libz.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libz.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaNghttp2",
+    export_include_dirs: ["build/sdk-android-arm64/include"],
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libnghttp2.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libnghttp2.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaCapstone",
+    export_include_dirs: ["build/sdk-android-arm64/include/capstone"],
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libcapstone.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libcapstone.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaPcre2",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libpcre2-8.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libpcre2-8.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaFfi",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libffi.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libffi.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaIconv",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libiconv.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libiconv.a"],
+        }
+    }
+}
+
+cc_prebuilt_library_static {
+    name: "libFridaSELinux",
+    arch: {
+        arm: {
+            srcs: ["build/sdk-android-arm/lib/libselinux.a"],
+        },
+        arm64: {
+            srcs: ["build/sdk-android-arm64/lib/libselinux.a"],
+        }
+    }
+}

@@ -12,5 +12,5 @@ on property:sys.frida.enabled=1
 on property:sys.frida.enabled=0
     stop service_frida
 
-on userspace-reboot-resume
+on userspace-reboot-requested
     setprop sys.frida.enabled 0
