@@ -62,14 +62,17 @@ To ensure that macOS accepts the newly created certificate, restart the
     export ANDROID_NDK_ROOT=~/android_sdk/ndk/25.2.9519653
     rm -rf build/frida-android-*/ && \
     rm -rf build/tmp-android-*/ && \
+    rm -rf build/frida-* && \
     make core-android-arm && make core-android-arm64 && \
     adb root && \
     adb remount && \
     adb push build/frida-android-arm64/bin/frida-server /system/bin/frida-server && \
     adb push build/frida-android-arm/lib/frida/32/frida-helper /system/bin/frida-helper-32 && \
     adb push build/frida-android-arm64/lib/frida/64/frida-helper /system/bin/frida-helper-64 && \
-    adb push build/frida-android-arm/lib/frida/32/frida-agent.so /system/lib/frida-agent.so && \
-    adb push build/frida-android-arm64/lib/frida/64/frida-agent.so /system/lib64/frida-agent.so && \
+    adb push build/frida-android-arm/lib/frida/32/frida-agent.so /system/lib/libfrida-agent.so && \
+    adb push build/frida-android-arm64/lib/frida/64/frida-agent.so /system/lib64/libfrida-agent.so && \
+    adb push build/frida-android-arm/lib/frida/32/frida-gadget.so /system/lib/libfrida-gadget.so && \
+    adb push build/frida-android-arm64/lib/frida/64/frida-gadget.so /system/lib64/libfrida-gadget.so && \
     adb reboot
 
     adb shell ps -A | grep frida-server | awk '{print $2}' | xargs adb shell kill -9 &&
