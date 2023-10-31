@@ -59,7 +59,7 @@ To ensure that macOS accepts the newly created certificate, restart the
 
 ### Build
 
-    export ANDROID_NDK_ROOT=~/android_sdk/ndk/25.2.9519653
+    export ANDROID_NDK_ROOT=~/android_sdk/ndk/25.1.8937393
     rm -rf build/frida-android-*/ && \
     rm -rf build/tmp-android-*/ && \
     rm -rf build/frida-* && \

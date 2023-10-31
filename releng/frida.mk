@@ -16,7 +16,7 @@ frida_gum_flags := \
 	-Dfrida_objc_bridge=$(FRIDA_OBJC_BRIDGE) \
 	-Dfrida_swift_bridge=$(FRIDA_SWIFT_BRIDGE) \
 	-Dfrida_java_bridge=$(FRIDA_JAVA_BRIDGE) \
-	-Dtests=enabled \
+	-Dtests=disabled \
 	$(NULL)
 frida_core_flags := \
 	--default-library static \
